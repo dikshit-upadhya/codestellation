@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../server/api/app-modules.js"],"names":["module","exports","GENERAL","USER"],"mappings":"AAAAA,OAAOC,OAAP,GAAiB;AACbC,aAAS,SADI;AAEbC,UAAM;AAFO,CAAjB","file":"app-modules.js","sourcesContent":["module.exports = {\r\n    GENERAL: 'GENERAL',\r\n    USER: 'USER'\r\n}"]}

@@ -1,0 +1,6 @@
+{
+    "name" : "Server Production" , 
+    "database" : "mongodb://localhost:27017/production",
+    "port" : 3333, 
+    "appsecret" : "asimpleappsecret"
+}
