@@ -12,6 +12,8 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined"
 import Typography from "@mui/material/Typography"
 import Container from "@mui/material/Container"
 import { createTheme, ThemeProvider } from "@mui/material/styles"
+import axios from 'axios'
+import { useHistory } from 'react-router-dom'
 
 function Copyright(props) {
 	return (
@@ -34,13 +36,32 @@ function Copyright(props) {
 const theme = createTheme()
 
 export default function Signup() {
+	const history = useHistory()
+
 	const handleSubmit = (event) => {
 		event.preventDefault()
 		const data = new FormData(event.currentTarget)
-		console.log({
+		let user = {
+			name: data.get("name"),
 			email: data.get("email"),
 			password: data.get("password"),
-		})
+			phoneNumber: data.get("phoneNumber"),
+			astuRollNumber: data.get("astuRollNumber"),
+			semester: data.get("semester"),
+			branch: data.get("branch")
+		}
+		if(data.get('adminSecret')) {
+			user.adminSecret = data.get('adminSecret')
+			axios.post('http://localhost:3333/api/admin/master', user).then(response => {
+			console.log(response)
+			history.push('/login')
+			})
+		} else {
+				axios.post('http://localhost:3333/api/user', user).then(response => { 
+				console.log(response) 
+				history.push('/login')
+			}).catch(err => console.log(err))	
+		}
 	}
 
 	return (
@@ -114,8 +135,8 @@ export default function Signup() {
 									required
 									fullWidth
 									name="phoneNumber"
-                                    label="Phone Number"
-                                    type="tel"
+									label="Phone Number"
+									type="tel"
 									id="signUp_phoneNumber"
 								/>
 							</Grid>
@@ -124,7 +145,7 @@ export default function Signup() {
 									required
 									fullWidth
 									name="astuRollNumber"
-                                    label="ASTU Roll Number"
+									label="ASTU Roll Number"
 									id="signUp_astuRollNumber"
 								/>
 							</Grid>
@@ -133,7 +154,7 @@ export default function Signup() {
 									required
 									fullWidth
 									name="semester"
-                                    label="Semester"
+									label="Semester"
 									id="signUp_semester"
 								/>
 							</Grid>
@@ -142,8 +163,16 @@ export default function Signup() {
 									required
 									fullWidth
 									name="branch"
-                                    label="Branch"
+									label="Branch"
 									id="signUp_branch"
+								/>
+							</Grid>
+							<Grid item xs={12}>
+								<TextField
+									fullWidth
+									name="adminSecret"
+									label="Enter Admin Secret (ONly for admins)"
+									id="adminSecret_signup"
 								/>
 							</Grid>
 							<Grid item xs={12}>
@@ -157,15 +186,17 @@ export default function Signup() {
 									label="Remember me"
 								/>
 							</Grid>
+							<Grid item xs={12}>
+								<Button
+									type="submit"
+									fullWidth
+									variant="contained"
+									sx={{ mt: 3, mb: 2 }}
+								>
+									Sign Up
+								</Button>
+							</Grid>
 						</Grid>
-						<Button
-							type="submit"
-							fullWidth
-							variant="contained"
-							sx={{ mt: 3, mb: 2 }}
-						>
-							Sign Up
-						</Button>
 						<Grid
 							container
 							justifyContent="flex-end"

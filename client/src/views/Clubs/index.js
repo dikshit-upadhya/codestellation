@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useEffect, useState} from "react"
 import Grid from "@mui/material/Grid"
 import { connect } from "react-redux"
 import Button1 from "../../components/Button/button1.js"
@@ -10,6 +10,7 @@ import Box from '@mui/material/Box'
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
+import axios from 'axios'
 
 const SearchIconWrapper = styled('div')(({ theme }) => ({
     padding: theme.spacing(0, 2),
@@ -56,6 +57,19 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 const Clubs = (props) => {
+    const [clubs, setClubs] = useState([])
+
+    useEffect(() => {
+       axios.post('http://localhost:3333/api/club').then(response  => {
+            console.log(response)
+            setClubs(response.data)
+       }).catch(err => {
+           console.log(err)
+       })
+    }, [])
+
+    
+
     const history = useHistory()
     return (
         <>
@@ -92,19 +106,7 @@ const Clubs = (props) => {
                     }}
                 >
                     <Grid container spacing={4}>
-                        {[
-                            "Yoga Club",
-                            "Dance Club",
-                            "Ninja Club",
-                            "Samurai Club",
-                            "Anime Club",
-                            "BasketBall Club",
-                            "Cricket Club",
-                            "Coding Club",
-                            "Debate Club",
-                            "Robotics Club",
-                            "FootBall Club"
-                        ].map((club, index) => (
+                        {clubs.map((club, index) => (
                             <Grid item xs={3} key={`${club}${index}`}>
                                 <ClubCard
                                     title={club}

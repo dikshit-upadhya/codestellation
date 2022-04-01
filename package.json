@@ -16,6 +16,8 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "axios": "^0.26.1",
+        "babel-node": "^0.0.1-security",
         "bcryptjs": "^2.4.3",
         "body-parser": "^1.19.0",
         "connect-mongo": "^4.6.0",

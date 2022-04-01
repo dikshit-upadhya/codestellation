@@ -12,6 +12,7 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined"
 import Typography from "@mui/material/Typography"
 import Container from "@mui/material/Container"
 import { createTheme, ThemeProvider } from "@mui/material/styles"
+import axios from 'axios'
 
 function Copyright(props) {
 	return (
@@ -37,9 +38,18 @@ export default function Login() {
 	const handleSubmit = (event) => {
 		event.preventDefault()
 		const data = new FormData(event.currentTarget)
+		let user = {
+			phoneNumber: data.get('phoneNumber'),
+			password: data.get('password')
+		}
 		console.log({
 			email: data.get("email"),
 			password: data.get("password"),
+		})
+		axios.post('http://localhost:3333/api/user/login', user).then(response => {
+			console.log(response)
+		}).catch(err => {
+			console.log(err)
 		})
 	}
 
@@ -77,10 +87,10 @@ export default function Login() {
 							margin="normal"
 							required
 							fullWidth
-							id="email"
-							label="Email Address"
-							name="email"
-							autoComplete="email"
+							id="phoneNumber"
+							label="Phone Number"
+							name="phoneNumber"
+							autoComplete="phone number"
 							autoFocus
 						/>
 						<TextField
