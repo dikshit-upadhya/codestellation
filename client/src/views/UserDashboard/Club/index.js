@@ -13,6 +13,9 @@ import DeleteRounded from "@mui/icons-material/DeleteRounded"
 import IconButton from '@mui/material/IconButton'
 import EditRounded from '@mui/icons-material/EditRounded'
 import {useHistory} from 'react-router-dom'
+import chatImage from '../../../assets/chatimage.png'
+import CardMedia from '@mui/material/CardMedia'
+import Card from '@mui/material/Card'
 
 const UserDashboardClub = (props) => {
     const history = useHistory()
@@ -87,11 +90,13 @@ const UserDashboardClub = (props) => {
 									)
 								)}
 							</List>
+							
 						</Paper>
 					</Grid>
 					<Grid item xs={9}>
-						Here will be a chat box, which
-						is to be made later
+					<img src="https://i.postimg.cc/sXV3pR5S/chatimage.png" alt="image" style={{
+						width: '600px'
+					}} />
 					</Grid>
 				</Grid>
 			</div>
