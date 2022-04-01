@@ -74,7 +74,7 @@ const configureAppForSessions = (app) => {
 
 		const user = await User.findOne({ user_id: userId })
 		if (!user) {
-			err = new AppError("404-USER-001", appModules.USER)
+			let err = new AppError("404-USER-001", appModules.USER)
 			return done(err)
 		}
 		return done(null, user)

@@ -1,9 +1,11 @@
 const toServerFormat = (obj) => ({
-    first_name: obj.firstName, 
-    last_name: obj.lastName,
-    email: obj.email, 
     phone_number: obj.phoneNumber, 
-    password: obj.password,  
+    name: obj.name, 
+    password: obj.password, 
+    email: obj.email,
+    astu_roll_number: obj.astuRollNumber,
+    semester: obj.semester,
+    branch: obj.branch,
 })
 
 module.exports = {toServerFormat}

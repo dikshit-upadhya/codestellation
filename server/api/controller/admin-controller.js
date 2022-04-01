@@ -1,6 +1,6 @@
 const {validateAdmin, createMasterAdmin, createAdmin:createAdminService} = require('../services/admin-service')
 const {validateUser} = require('../services/user-service')
-const {toServerFormat} = require('../payload/request/user-request')
+const {toServerFormat} = require('../payload/request/admin-request')
 const {toClientFormat} = require('../payload/response/user-response')
 
 module.exports = {

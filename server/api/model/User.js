@@ -32,6 +32,10 @@ const userSchema = new mongoose.Schema({
         type: String, 
         enum: USER_ROLES
     },
+    club_ids: {
+        type: Array,
+        default: []
+    },
     created_by_id: String, 
     updated_by_id: String,
 }, {
@@ -44,7 +48,7 @@ userSchema.pre('save', function(next ) {
     if(!user.isModified('password')) return next()
 
     user.password = generateHash(user.password)
-    next()
+    next() 
 }) 
 
 let User = mongoose.model('User', userSchema)
@@ -55,7 +59,7 @@ const userValidationSchema = Joi.object({
     phoneNumber: Joi.string().length(10).pattern(/^[0-9]+$/).required(),
     email: Joi.string().email().required(), 
     password: Joi.string().required().min(5), 
-    astu_roll_number: Joi.string().required(),
+    astuRollNumber: Joi.string().required(),
     semester: Joi.number().required().min(0).max(8),
     branch: Joi.string().required()
 })
