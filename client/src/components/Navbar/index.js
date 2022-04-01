@@ -28,8 +28,8 @@ const Navbar = () => {
 					<Button color="inherit" onClick={() => history.push('/login')}>
 						Login/Signup
 					</Button>
-					<Button color="inherit">Clubs</Button>
-					<Button color="inherit">Events</Button>
+					<Button color="inherit" onClick={() => history.push('/clubs')}>Clubs</Button>
+					<Button color="inherit" onClick={() => history.push('/events')}>Events</Button>
 					<Button color="inherit" onClick={() => history.push('/user/dashboard')}>Dashboard</Button>
 				</Toolbar>
 			</AppBar>

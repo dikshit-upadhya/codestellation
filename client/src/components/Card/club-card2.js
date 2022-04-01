@@ -4,9 +4,15 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
+import CardActions from '@mui/material/CardActions';
+import Button from '@mui/material/Button';
+// import { useHistory } from 'react-router-dom';
+
+// ONCLICK FROM PROPS WORKING ON EVERYTHING
 
 export default function ClubCard1(props) {
-  return (
+    // const history = useHistory()
+    return (
     <Card sx={{ maxWidth: 345 }} elevation={10}>
       <CardActionArea onClick={props.onClick}>
         <CardMedia
@@ -23,7 +29,10 @@ export default function ClubCard1(props) {
             {props.subHeader} 
           </Typography>
         </CardContent>
-
+        <CardActions>
+          <Button size="small">Club Details</Button>
+          <Button size="small">Events</Button>
+        </CardActions>
       </CardActionArea>
     </Card>
   );

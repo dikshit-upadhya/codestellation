@@ -4,7 +4,7 @@ import Paper from '@mui/material/Paper'
 import Typography from '@mui/material/Typography'
 import DashboardDrawer from '../dashboardDrawer'
 
-const temp = [
+export const temp = [
     {date: '22-22-2222', description: 'Today is the last date of registration for codewar. Interested students are requested to please register for the event as soon as possible. This is a long notification. This is a long notificationThis is a long notificationThis is a long notificationThis is a long notificationThis is a long notificationThis is a long notificationThis is a long notificationThis is a long notificationThis is a long noti'}, 
     {date: '11-11-1111', description: "Today is the last date of registration for codewar. Interested students are requested to please register for the event as soon as possible."}
 ]
