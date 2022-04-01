@@ -34,7 +34,7 @@ export default function UserDashboard() {
 					</Typography>
 				</Grid>
 				<Grid item xs={4}>
-					<Button1>Join Club</Button1>
+					<Button1 onClick={() => history.push('/user/joinclub')}>Join Club</Button1>
 				</Grid>
 			</Grid>
 			<Paper

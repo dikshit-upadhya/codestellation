@@ -63,7 +63,8 @@ const Events = (props) => {
                 marginRight: "0px",
                 padding: "30px 30px 0px 30px",
             }}>
-                <Grid item xs={2}
+                <Grid item xs={2
+                }
                    >
                     <Button2>All</Button2>
                 </Grid>

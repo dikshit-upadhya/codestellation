@@ -2,11 +2,9 @@ import * as React from "react"
 import Avatar from "@mui/material/Avatar"
 import Button from "@mui/material/Button"
 import CssBaseline from "@mui/material/CssBaseline"
-import TextField from "@mui/material/TextField"
 import Link from "@mui/material/Link"
 import Grid from "@mui/material/Grid"
 import Box from "@mui/material/Box"
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined"
 import Typography from "@mui/material/Typography"
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -87,48 +85,22 @@ export default function JoinClub() {
                                 xs={12}
                             >
                                 <FormControl fullWidth>
-                                    <InputLabel id="demo-simple-select-label">Age</InputLabel>
+                                    <InputLabel id="demo-simple-select-label">Select Club</InputLabel>
                                     <Select
                                         labelId="demo-simple-select-label"
                                         id="demo-simple-select"
                                         value={age}
-                                        label="Age"
+                                        label="Select Club"
                                         onChange={handleChange}
                                     >
-                                        <MenuItem value={10}>Ten</MenuItem>
-                                        <MenuItem value={20}>Twenty</MenuItem>
-                                        <MenuItem value={30}>Thirty</MenuItem>
+                                        <MenuItem value="Coding Club">Coding Club</MenuItem>
+                                        <MenuItem value="Basketball Club">Basketball Club</MenuItem>
+                                        <MenuItem value="Cricket Club">Cricket Club</MenuItem>
                                     </Select>
                                 </FormControl>
-                                {/* <TextField
-									autoComplete="given-name"
-									name="club_name"
-									required
-									fullWidth
-									id="club_name"
-									label="Club Name"
-									autoFocus
-								/> */}
-                            </Grid>
-                            <Grid item xs={12}>
-                                <TextField
-                                    required
-                                    fullWidth
-                                    id="club_description"
-                                    label="Club Description"
-                                    name="club_description"
-                                />
-                            </Grid>
 
-                            <Grid item xs={12}>
-                                <TextField
-                                    required
-                                    fullWidth
-                                    type="number"
-                                    name="fees"
-                                    label="Club Joining Fees"
-                                    id="club_joining_fees"
-                                />
+
+
                             </Grid>
 
                         </Grid>
@@ -138,7 +110,7 @@ export default function JoinClub() {
                             variant="contained"
                             sx={{ mt: 3, mb: 2 }}
                         >
-                            Create Club
+                            Pay
                         </Button>
                         <Grid
                             container

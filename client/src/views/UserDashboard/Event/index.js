@@ -29,8 +29,11 @@ export default function UserDashboardEvent() {
 						Events you've participated in
 					</Typography>
 				</Grid>
-				<Grid item xs={4}>
+				<Grid item xs={2}>
 					<Button1>New Event</Button1>
+				</Grid>
+                <Grid item xs={2}>
+					<Button1>Join Event</Button1>
 				</Grid>
 			</Grid>
 			<Paper

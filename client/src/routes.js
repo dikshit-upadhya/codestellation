@@ -1,5 +1,8 @@
 import React from 'react'
+import CreateEvent from './views/AdminDashboard/Event/create-event'
 import JoinClub from './views/UserDashboard/Club/join-club'
+import ClubWelCome from './views/UserDashboard/Club/welcome'
+import JoinEvent from './views/UserDashboard/Event/join-welcome'
 
 const Home = React.lazy(() => import('./views/Home'))
 const Login = React.lazy(() => import('./views/Login'))
@@ -27,9 +30,12 @@ const routes = [
     { path: '/clubs/:clubId', name: 'Club Details', exact: true, component: ClubDetails }, 
     { path: '/user/dashboard/club/:clubId/announcements', name: 'User Dashboard Club Announcements', exact: true, component: UserDashboardClubAnnouncements},
     { path: '/user/joinclub', name: 'Join Club', exact: true, component: JoinClub }, 
+    { path: '/user/joinclub/welcome', name: 'Welcome to the Club', exact: true, component: ClubWelCome}, 
+    { path: '/user/joinEvent', name: 'Join Event', exact: true, component: JoinEvent}, 
 
-    { path: '/admin/createclub', name: 'Create Details', exact: true, component: CreateClub }, 
-
+    { path: '/admin/createclub', name: 'Create Club', exact: true, component: CreateClub }, 
+    { path: '/admin/createEvent', name: 'Create Event', exact: true, component: CreateEvent }, 
+    
 ]
 
 export default routes
