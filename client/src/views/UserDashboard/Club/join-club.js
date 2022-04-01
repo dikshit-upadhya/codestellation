@@ -112,7 +112,7 @@ export default function JoinClub() {
                             type="submit"
                             fullWidth
                             variant="contained"
-                            onClick={() => history.push('/user/dashboard')}
+                            onClick={() => history.push('/user/joinclub/welcome')}
                             sx={{ mt: 3, mb: 2 }}
                         >
                             Pay

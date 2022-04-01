@@ -23,7 +23,10 @@ if(process.env.NODE_ENV !== 'test') {
 }
 app.use(bp.urlencoded({extended: false}))
 app.use(bp.json())
-app.use(cors())
+app.use(cors({
+    origin: "http://localhost:3000", // <-- location of the react app were connecting to
+    credentials: true,
+}))
 
 require('./api/middlewares/passport-middleware').configureAppForSessions(app)
 

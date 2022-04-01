@@ -12,7 +12,8 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined"
 import Typography from "@mui/material/Typography"
 import Container from "@mui/material/Container"
 import { createTheme, ThemeProvider } from "@mui/material/styles"
-import axios from 'axios'
+import Axios from 'axios'
+import {useHistory} from 'react-router-dom'
 
 function Copyright(props) {
 	return (
@@ -35,6 +36,8 @@ function Copyright(props) {
 const theme = createTheme()
 
 export default function Login() {
+	const history = useHistory()
+
 	const handleSubmit = (event) => {
 		event.preventDefault()
 		const data = new FormData(event.currentTarget)
@@ -46,11 +49,18 @@ export default function Login() {
 			email: data.get("email"),
 			password: data.get("password"),
 		})
-		axios.post('http://localhost:3333/api/user/login', user).then(response => {
+		Axios.post('http://localhost:3333/api/user/login', user, { withCredentials: true }).then(response => {
 			console.log(response)
+			history.push('/user/dashboard')
 		}).catch(err => {
 			console.log(err)
 		})
+		// Axios({
+		// 	method: "POST",
+		// 	data: user,
+		// 	withCredentials: true,
+		// 	url: "http://localhost:3333/api/user/login",
+		//   }).then((res) => console.log(res));
 	}
 
 	return (

@@ -1,7 +1,6 @@
-import React, {useEffect, useState} from "react"
+import React, { useEffect, useState } from "react"
 import Grid from "@mui/material/Grid"
 import { connect } from "react-redux"
-import Button1 from "../../components/Button/button1.js"
 import Paper from "@mui/material/Paper"
 import ClubCard from "../../components/Card/club-card2"
 import types from "../../store/types"
@@ -60,15 +59,17 @@ const Clubs = (props) => {
     const [clubs, setClubs] = useState([])
 
     useEffect(() => {
-       axios.post('http://localhost:3333/api/club').then(response  => {
-            console.log(response)
-            setClubs(response.data)
-       }).catch(err => {
-           console.log(err)
-       })
+        axios.get('http://localhost:3333/api/clubs', {
+            withCredentials: true,
+        }).then(res => {
+                let data = res.data
+                setClubs([...clubs, ...data])
+            }).catch(err => {
+                console.log(err)
+            })
     }, [])
 
-    
+
 
     const history = useHistory()
     return (
@@ -106,23 +107,18 @@ const Clubs = (props) => {
                     }}
                 >
                     <Grid container spacing={4}>
-                        {[
-                            "Basketball Club",
-                            "Coding Club",
-                            "Ninja Club",
-                            "Eco Club"
-                        ].map((club, index) => (
+                        {clubs.map((club, index) => (
                             <Grid item xs={3} key={`${club}${index}`}>
                                 <ClubCard
-                                    title={club}
-                                    subHeader="This club is cool!"
+                                    title={club.clubName}
+                                    subHeader={club.clubDesc}
                                     onClick={() => history.push('/clubs/coding')}
                                     imageUrl={
                                         "https://media.istockphoto.com/vectors/literature-fans-people-with-books-vector-id1212702257?k=20&m=1212702257&s=612x612&w=0&h=_bjkUve9ITd3FPCqt8Q-RZla_4X7MYZBKZ5BfXFPBIU="
                                     }
                                     imageAlt={`image${index}`}
                                 />
-                            
+
                             </Grid>
                         ))}
 

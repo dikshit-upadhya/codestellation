@@ -36,7 +36,7 @@ const ClubWelCome = (props) => {
                             fullWidth
                             variant="contained"
                             sx={{ mt: 3, mb: 2 }}
-                            // onClick={history.push('/user/dashboard/club/coding')}
+                            onClick={() => history.push('/user/dashboard/club/coding')}
                         >
                             Go to clubroom
                         </Button>

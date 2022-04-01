@@ -11,6 +11,7 @@ import Typography from "@mui/material/Typography"
 import Container from "@mui/material/Container"
 import { createTheme, ThemeProvider } from "@mui/material/styles"
 import { useHistory } from "react-router-dom"
+import axios from 'axios'
 
 function Copyright(props) {
 	return (
@@ -38,11 +39,19 @@ export default function CreateClub() {
 	const handleSubmit = (event) => {
 		event.preventDefault()
 		const data = new FormData(event.currentTarget)
-		console.log({
-			email: data.get("email"),
-			password: data.get("password"),
+		const club = {
+			clubName: data.get('club_name'),
+			clubDesc: data.get('club_description'),
+			clubFees: data.get('fees')
+		}
+		axios.post('http://localhost:3333/api/club', club, {
+			withCredentials: true,
+		}).then(response => {
+			console.log(response)
+			history.push('/user/dashboard')
+		}).catch(err => {
+			console.log(err)
 		})
-		history.push('/user/dashboard')
 	}
 
 	return (

@@ -1,7 +1,6 @@
 import * as React from "react"
 import Button from "@mui/material/Button"
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import { color } from "@mui/system";
 
 export default function Button2(props) {
 	return (
