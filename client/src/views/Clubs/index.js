@@ -106,7 +106,12 @@ const Clubs = (props) => {
                     }}
                 >
                     <Grid container spacing={4}>
-                        {clubs.map((club, index) => (
+                        {[
+                            "Basketball Club",
+                            "Coding Club",
+                            "Ninja Club",
+                            "Eco Club"
+                        ].map((club, index) => (
                             <Grid item xs={3} key={`${club}${index}`}>
                                 <ClubCard
                                     title={club}

@@ -10,6 +10,7 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined"
 import Typography from "@mui/material/Typography"
 import Container from "@mui/material/Container"
 import { createTheme, ThemeProvider } from "@mui/material/styles"
+import { useHistory } from "react-router-dom"
 
 function Copyright(props) {
 	return (
@@ -32,6 +33,9 @@ function Copyright(props) {
 const theme = createTheme()
 
 export default function CreateEvent() {
+	
+	const history = useHistory()
+
 	const handleSubmit = (event) => {
 		event.preventDefault()
 		const data = new FormData(event.currentTarget)
@@ -39,6 +43,7 @@ export default function CreateEvent() {
 			email: data.get("email"),
 			password: data.get("password"),
 		})
+		history.push('/user/dashboard/events')
 	}
 
 	return (

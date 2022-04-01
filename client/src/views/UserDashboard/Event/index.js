@@ -30,10 +30,10 @@ export default function UserDashboardEvent() {
 					</Typography>
 				</Grid>
 				<Grid item xs={2}>
-					<Button1>New Event</Button1>
+					<Button1 onClick={() => history.push('/admin/createevent')}>New Event</Button1>
 				</Grid>
                 <Grid item xs={2}>
-					<Button1>Join Event</Button1>
+					<Button1 onClick={() => history.push('/user/joinEvent')}>Join Event</Button1>
 				</Grid>
 			</Grid>
 			<Paper

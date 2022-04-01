@@ -29,11 +29,12 @@ const routes = [
     { path: '/events/:eventId', name: 'Event Details', exact: true, component: EventDetails }, 
     { path: '/clubs/:clubId', name: 'Club Details', exact: true, component: ClubDetails }, 
     { path: '/user/dashboard/club/:clubId/announcements', name: 'User Dashboard Club Announcements', exact: true, component: UserDashboardClubAnnouncements},
-    { path: '/user/joinclub', name: 'Join Club', exact: true, component: JoinClub }, 
-    { path: '/user/joinclub/welcome', name: 'Welcome to the Club', exact: true, component: ClubWelCome}, 
+    { path: '/user/joinClub', name: 'Join Club', exact: true, component: JoinClub }, 
+    { path: '/user/joinClub/welcome', name: 'Welcome to the Club', exact: true, component: ClubWelCome}, 
     { path: '/user/joinEvent', name: 'Join Event', exact: true, component: JoinEvent}, 
+    { path: '/user/dashboard/event/:eventId', name: 'Event DashBoard', exact: true, component: EventDetails }, 
 
-    { path: '/admin/createclub', name: 'Create Club', exact: true, component: CreateClub }, 
+    { path: '/admin/createClub', name: 'Create Club', exact: true, component: CreateClub }, 
     { path: '/admin/createEvent', name: 'Create Event', exact: true, component: CreateEvent }, 
     
 ]

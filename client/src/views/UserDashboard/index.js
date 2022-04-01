@@ -3,13 +3,14 @@ import Box from "@mui/material/Box"
 import Typography from "@mui/material/Typography"
 import Grid from "@mui/material/Grid"
 import Button1 from "../../components/Button/button1.js"
+import Button from "@mui/material/Button"
 import DashboardDrawer from "./dashboardDrawer"
 import Paper from "@mui/material/Paper"
 import ClubCard from "../../components/Card/club-card1"
-import {useHistory} from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 export default function UserDashboard() {
-    const history = useHistory()
+	const history = useHistory()
 
 	return (
 		<Box
@@ -32,9 +33,13 @@ export default function UserDashboard() {
 						Click on any one of them to open
 						their chat room/notification..
 					</Typography>
+
 				</Grid>
-				<Grid item xs={4}>
-					<Button1 onClick={() => history.push('/user/joinclub')}>Join Club</Button1>
+				<Grid item xs={2}>
+					<Button1 onClick={() => history.push('/admin/createClub')}>New Club</Button1>
+				</Grid>
+				<Grid item xs={2}>
+					<Button1 color="inherit" onClick={() => history.push('/user/joinclub')}>Join Club</Button1>
 				</Grid>
 			</Grid>
 			<Paper
@@ -44,29 +49,27 @@ export default function UserDashboard() {
 					padding: "30px",
 				}}
 			>
-                <Grid container spacing={4}>
-
-                
-				{[
-					"Coding Club",
-					"Debate Club",
-                    "Robotics Club",
-                    "Yoga Club",
-                    "Dance Club", 
-                    "Ninja Club"
-				].map((club, index) => (
-                    <Grid item xs={3} key={`${club}${index}`}>
-					<ClubCard
-						title={club}
-						onClick={() => history.push('/user/dashboard/club/coding')}
-						imageUrl={
-							"https://media.istockphoto.com/vectors/literature-fans-people-with-books-vector-id1212702257?k=20&m=1212702257&s=612x612&w=0&h=_bjkUve9ITd3FPCqt8Q-RZla_4X7MYZBKZ5BfXFPBIU="
-						}
-						imageAlt={`image${index}`}
-					/>
-                    </Grid>
-				))}
-                </Grid>
+				<Grid container spacing={4}>
+					{[
+						"Coding Club",
+						"Debate Club",
+						"Robotics Club",
+						"Yoga Club",
+						"Dance Club",
+						"Ninja Club"
+					].map((club, index) => (
+						<Grid item xs={3} key={`${club}${index}`}>
+							<ClubCard
+								title={club}
+								onClick={() => history.push('/user/dashboard/club/coding')}
+								imageUrl={
+									"https://media.istockphoto.com/vectors/literature-fans-people-with-books-vector-id1212702257?k=20&m=1212702257&s=612x612&w=0&h=_bjkUve9ITd3FPCqt8Q-RZla_4X7MYZBKZ5BfXFPBIU="
+								}
+								imageAlt={`image${index}`}
+							/>
+						</Grid>
+					))}
+				</Grid>
 			</Paper>
 		</Box>
 	)

@@ -12,6 +12,8 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Container from "@mui/material/Container"
 import { createTheme, ThemeProvider } from "@mui/material/styles"
+import { useHistory } from "react-router-dom"
+
 
 function Copyright(props) {
     return (
@@ -34,6 +36,7 @@ function Copyright(props) {
 const theme = createTheme()
 
 export default function JoinClub() {
+    const history = useHistory()
     const handleSubmit = (event) => {
         event.preventDefault()
         const data = new FormData(event.currentTarget)
@@ -43,10 +46,10 @@ export default function JoinClub() {
         })
     }
 
-    const [age, setAge] = React.useState('');
+    const [clubs, setclubs] = React.useState('');
 
     const handleChange = (event) => {
-        setAge(event.target.value);
+        setclubs(event.target.value);
     };
 
     return (
@@ -84,12 +87,13 @@ export default function JoinClub() {
                                 item
                                 xs={12}
                             >
-                                <FormControl fullWidth>
+                                <FormControl fullWidth style={{minWidth: 150}}>
                                     <InputLabel id="demo-simple-select-label">Select Club</InputLabel>
                                     <Select
                                         labelId="demo-simple-select-label"
+                                        fullWidth
                                         id="demo-simple-select"
-                                        value={age}
+                                        value={clubs}
                                         label="Select Club"
                                         onChange={handleChange}
                                     >
@@ -108,6 +112,7 @@ export default function JoinClub() {
                             type="submit"
                             fullWidth
                             variant="contained"
+                            onClick={() => history.push('/user/dashboard')}
                             sx={{ mt: 3, mb: 2 }}
                         >
                             Pay

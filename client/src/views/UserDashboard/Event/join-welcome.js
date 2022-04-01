@@ -4,6 +4,7 @@ import Typography from "@mui/material/Typography"
 import Button from "@mui/material/Button"
 import Box from '@mui/material/Box'
 import { useHistory } from "react-router-dom"
+import Button1 from "../../../components/Button/button1"
 
 const JoinEvent = (props) => {
     const history = useHistory()
@@ -39,7 +40,7 @@ const JoinEvent = (props) => {
                         fullWidth
                         variant="contained"
                         sx={{ mt: 3, mb: 2 }}
-                    // onClick={history.push('/user/dashboard/club/coding')}
+                        onClick={() => history.push('/user/dashboard/events')}
                     >
                         Pay
                     </Button>

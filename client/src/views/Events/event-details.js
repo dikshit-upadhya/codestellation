@@ -1,14 +1,15 @@
 import React from "react"
 import Grid from "@mui/material/Grid"
 import Typography from "@mui/material/Typography"
-import Button from "@mui/material/Button"
 import { connect } from "react-redux"
 import types from "../../store/types"
-import homepageImage from '../../assets/coding-club.png'
 import Box from '@mui/material/Box'
-import Button2 from "../../components/Button/button2"
+import Button1 from "../../components/Button/button1"
+import { useHistory } from "react-router-dom"
+
 
 const EventDetails = (props) => {
+    const history = useHistory()
     return (
 
         <Box
@@ -26,10 +27,10 @@ const EventDetails = (props) => {
 
             <Grid container alignItems="center" spacing={5} padding="10px">
                 <Grid item xs={2}>
-                    <Button2>Participate</Button2>
+                    <Button1 onClick={() => history.push('/user/joinEvent')}>Participate</Button1>
                 </Grid>
                 <Grid item xs={2}>
-                    <Button2>Participate for Non AECians</Button2>
+                    <Button1>Participate for Non AECians</Button1>
                 </Grid>
             </Grid>
             <Grid container justifyContent="center" alignItems="center" spacing={10}>
